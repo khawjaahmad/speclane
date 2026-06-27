@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# SpecLane CLI entrypoint. Thin dispatcher; logic lives in lib/.
+set -euo pipefail
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=lib/common.sh
+source "$HERE/lib/common.sh"
+# shellcheck source=lib/new.sh
+source "$HERE/lib/new.sh"
+# shellcheck source=lib/validate.sh
+source "$HERE/lib/validate.sh"
+# shellcheck source=lib/list.sh
+source "$HERE/lib/list.sh"
+# shellcheck source=lib/archive.sh
+source "$HERE/lib/archive.sh"
+
+usage() {
+  cat <<'EOF'
+speclane — SpecLane CLI
+
+usage:
+  speclane new <feature|change|quickfix> <slug>   scaffold a change folder
+  speclane list                                   list active changes
+  speclane validate [track] <slug>                check required artifacts
+  speclane archive <slug>                         move a shipped change to archive
+EOF
+}
+
+main() {
+  local cmd="${1:-}"
+  shift || true
+  case "$cmd" in
+    new)      cmd_new "$@" ;;
+    list)     cmd_list "$@" ;;
+    validate) cmd_validate "$@" ;;
+    archive)  cmd_archive "$@" ;;
+    ""|-h|--help|help) usage ;;
+    *) die "unknown command: $cmd (try: speclane help)" ;;
+  esac
+}
+
+main "$@"
