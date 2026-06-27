@@ -1,0 +1,19 @@
+---
+description: SpecLane spec-driven development loop. Always apply in this repository.
+alwaysApply: true
+---
+
+# SpecLane rules for Cursor
+
+This repo uses SpecLane. For any non-trivial change, do not jump straight to code.
+
+1. Read `sdd/constitution.md` (always applies) and pick a track from `docs/tracks.md`
+   (`feature`, `change`, `quickfix`).
+2. Work in a change folder under `changes/`, using `templates/` for each artifact, in order:
+   specify (`proposal.md` + `spec.md` delta) → plan (`design.md`) → tasks (`tasks.md`) →
+   implement (code + tests) → verify (`evidence-bundle.md`) → archive (merge into `specs/`).
+3. Constitution rules: the spec is the source of truth; a human owns every merge and contract
+   change; contract changes are recorded in `design.md`; no secrets in code/specs/logs;
+   approval domains (auth, payments, data, infra, migrations) need human review; tests ship with
+   behavior.
+4. Stay within the proposal's scope. Link PRs to the change folder.
