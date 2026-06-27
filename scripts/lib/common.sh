@@ -4,7 +4,6 @@
 SPECLANE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 TEMPLATES="$SPECLANE_ROOT/templates"
 CHANGES="$SPECLANE_ROOT/changes"
-SPECS="$SPECLANE_ROOT/specs"
 
 _red()    { printf '\033[31m%s\033[0m\n' "$*"; }
 _yellow() { printf '\033[33m%s\033[0m\n' "$*"; }
