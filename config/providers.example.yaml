@@ -1,0 +1,31 @@
+# Copy to providers.yaml (gitignored). Documents endpoints + protocol per provider.
+# Keys come from the environment (.env), never from this file.
+
+providers:
+  anthropic:
+    protocol: anthropic            # Anthropic Messages API
+    base_url_env: ANTHROPIC_BASE_URL   # optional; defaults to Anthropic's own
+    api_key_env: ANTHROPIC_API_KEY
+    notes: First-party Claude. Best with Claude Code.
+
+  openai_compatible:
+    protocol: openai               # OpenAI Chat Completions API
+    base_url_env: OPENAI_BASE_URL
+    api_key_env: OPENAI_API_KEY
+    notes: OpenAI, OpenRouter, Ollama, vLLM, LM Studio, and most aggregators.
+
+  zai_anthropic:
+    protocol: anthropic
+    base_url: https://api.z.ai/api/anthropic
+    api_key_env: ZAI_API_KEY       # passed as ANTHROPIC_AUTH_TOKEN
+    notes: >
+      z.ai GLM Coding Plan via the Anthropic-compatible path. Drop-in for Claude Code.
+      Verify current URL at docs.z.ai.
+
+  zai_openai_coding:
+    protocol: openai
+    base_url: https://api.z.ai/api/coding/paas/v4
+    api_key_env: ZAI_API_KEY
+    notes: >
+      z.ai GLM Coding Plan via OpenAI-compatible path. The /coding/ endpoint is required to
+      spend Coding Plan quota (the general /api/paas/v4 endpoint does not).

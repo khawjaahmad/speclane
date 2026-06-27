@@ -1,0 +1,22 @@
+# Logical model roles -> concrete models. Lets you use a strong model for planning/review and a
+# cheaper one for routine implementation, without touching specs or adapters.
+#
+# `provider` refers to a key in providers.yaml. `model` is that provider's model id.
+# These are EXAMPLES — set real, current model ids for whatever provider you use.
+
+roles:
+  planner:        # specify / plan stages — reasoning matters most
+    provider: anthropic
+    model: claude-opus-4-8
+  implementer:    # implement stage — throughput; can be cheaper
+    provider: openai_compatible
+    model: gpt-5-codex
+  reviewer:       # verify / review — careful, skeptical
+    provider: anthropic
+    model: claude-sonnet-4-6
+
+# z.ai single-provider example (one plan covers all roles):
+# roles:
+#   planner:     { provider: zai_anthropic,     model: glm-5.2 }
+#   implementer: { provider: zai_openai_coding, model: glm-4.7 }   # cheaper for routine work
+#   reviewer:    { provider: zai_anthropic,     model: glm-5.2 }
