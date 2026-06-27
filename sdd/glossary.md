@@ -29,8 +29,8 @@ behavior, migration.
 **Living spec** — a spec under `specs/` describing the system as it currently is; updated at
 archive time.
 
-**Provider** — the model backend (Anthropic, an OpenAI-compatible endpoint, z.ai). Configured in
-`config/`, independent of the agent.
+**Provider** — the model backend a change runs against. Independent of the agent; concrete
+providers and endpoints are configured in `config/` and listed in `docs/providers.md`.
 
 **Spec delta** — the part of a change that adds/modifies/removes behavior in a living spec.
 

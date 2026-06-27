@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# speclane validate [track] <slug>
+# speclane validate <slug>
 
 # _placeholders_left <artifact> <template>
 # Prints any template placeholder tokens (e.g. <criterion>) still present in the
@@ -16,7 +16,7 @@ _placeholders_left() {
 }
 
 cmd_validate() {
-  [[ $# -ge 1 ]] || die "usage: speclane validate [track] <slug>"
+  [[ $# -ge 1 ]] || die "usage: speclane validate <slug>"
   local slug="${*: -1}"
   local dir; dir="$(resolve_change "$slug")" || die "no active change found for slug '$slug'"
   local track; track="$(track_of "$dir")"

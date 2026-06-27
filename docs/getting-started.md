@@ -41,7 +41,7 @@ This scaffolds `changes/<date>-add-dark-mode/` from the templates. Fill in the p
 the stages with your agent, then:
 
 ```bash
-./scripts/speclane validate change add-dark-mode
+./scripts/speclane validate add-dark-mode
 ./scripts/speclane archive add-dark-mode
 ```
 

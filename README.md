@@ -75,7 +75,7 @@ git clone https://github.com/khawjaahmad/speclane.git
 cd speclane
 ./scripts/speclane new change add-dark-mode    # scaffold a change folder from templates
 # ... fill in proposal/spec/design/tasks, then drive it with your agent ...
-./scripts/speclane validate change add-dark-mode
+./scripts/speclane validate add-dark-mode
 ./scripts/speclane archive add-dark-mode
 ```
 

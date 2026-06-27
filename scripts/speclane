@@ -22,7 +22,7 @@ speclane — SpecLane CLI
 usage:
   speclane new <feature|change|quickfix> <slug>   scaffold a change folder
   speclane list                                   list active changes
-  speclane validate [track] <slug>                check required artifacts
+  speclane validate <slug>                        check artifacts exist and are filled in
   speclane archive <slug>                         move a shipped change to archive
 EOF
 }

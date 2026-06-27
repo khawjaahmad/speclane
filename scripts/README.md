@@ -18,7 +18,7 @@ Or run it through bash without chmod: `bash scripts/speclane <command>`.
 ```
 speclane new <feature|change|quickfix> <slug>   scaffold a change folder from templates
 speclane list                                   list active changes
-speclane validate [track] <slug>                check that required artifacts exist
+speclane validate <slug>                        check artifacts exist, are filled in, and have criteria
 speclane archive <slug>                         move a shipped change to archive/
 ```
 
