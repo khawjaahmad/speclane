@@ -1,0 +1,39 @@
+name: speclane-validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate active change folders
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          found=0
+          for d in changes/*/; do
+            name="$(basename "$d")"
+            [ "$name" = "archive" ] && continue
+            [ -f "${d}proposal.md" ] || continue
+            slug="$(printf '%s' "$name" | sed -E 's/^[0-9]{4}-[0-9]{2}-[0-9]{2}-//')"
+            echo "::group::validate $slug"
+            bash scripts/speclane validate "$slug"
+            echo "::endgroup::"
+            found=1
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "no active change folders to validate"
+          fi
+
+      - name: Shellcheck CLI (informational)
+        continue-on-error: true
+        shell: bash
+        run: |
+          sudo apt-get update && sudo apt-get install -y shellcheck
+          shellcheck scripts/speclane scripts/lib/*.sh
