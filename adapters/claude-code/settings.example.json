@@ -1,0 +1,10 @@
+{
+  "$comment": "Example Claude Code settings for a SpecLane project. Copy to .claude/settings.json and adjust. Provider env (Anthropic or z.ai Anthropic-compatible) is set in your shell or .env, not here.",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Bash(./scripts/speclane:*)"
+    ]
+  }
+}
