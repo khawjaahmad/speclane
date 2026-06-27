@@ -1,0 +1,26 @@
+# Secrets and local config
+.env
+.env.*
+!.env.example
+config/providers.yaml
+config/*.local.yaml
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Agent local state
+.claude/
+.cursor/
+.aider*
+*.log
+
+# Build / deps
+node_modules/
+__pycache__/
+.venv/
+dist/
