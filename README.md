@@ -6,6 +6,9 @@
 
 Plan before you build · let the agent implement against the spec · leave behind evidence.
 
+[![CI](https://github.com/khawjaahmad/speclane/actions/workflows/validate.yml/badge.svg)](https://github.com/khawjaahmad/speclane/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 </div>
 
 ---
